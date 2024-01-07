@@ -1,15 +1,14 @@
-import smtplib 
-import email
+import smtplib
 from email.message import EmailMessage
-from user_info import MY_EMAIL, PASSWORD_KEY, FIDE_ID
+from user_info import MY_EMAIL, PASSWORD_KEY, FIDE_ID, EMAIL_SERVER
 
 def send_email(email, tournament_name, rating):
-    # SMTP Server and port no for inbox.lv
-    inbox_server= "mail.inbox.lv"
-    inbox_port= 587
+    # SMTP Server and port no for email server
+    email_server= EMAIL_SERVER
+    email_port= 587
 
     # Starting connection
-    my_server = smtplib.SMTP(inbox_server, inbox_port)
+    my_server = smtplib.SMTP(email_server, email_port)
     my_server.ehlo()
     my_server.starttls()
         
@@ -40,4 +39,3 @@ def send_email(email, tournament_name, rating):
     msg['CC'] = MY_EMAIL
 
     my_server.send_message(msg)
-    print('Mail Sent to', msg['To'], msg['CC'], msg['Subject'])
