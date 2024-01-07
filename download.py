@@ -53,8 +53,6 @@ def download():
 
             if(tournament_date < CURRENT_DAY):
                 break
-            
-            print(tournament_date_string ,tournament_name.string)
 
             worksheet['A' + str(i)] = tournament_date_string
             worksheet['B' + str(i)] = tournament_name.string
