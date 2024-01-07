@@ -1,4 +1,4 @@
-# chessLV
+# chessLV - automatizēta šaha turnīru pieteikšanās sistēma
 
 ## Problēmas raksturojums
 
@@ -23,3 +23,4 @@ cp user_info_example.py user_info.py
 ```
 Rediģēt 
 ## Programmas lietošanas piemērs
+
