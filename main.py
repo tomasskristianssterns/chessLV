@@ -2,7 +2,7 @@ from tkinter import *
 from tkinter.ttk import *
 import tksheet
 from openpyxl import load_workbook 
-import datetime, time
+import datetime
 import Download
 import Read
 import Ratings
