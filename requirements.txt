@@ -1,0 +1,6 @@
+###### Requirements without Version Specifiers ######
+pypdf
+tksheet
+openpyxl
+requests
+beautifulsoup4
