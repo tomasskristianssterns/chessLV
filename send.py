@@ -4,8 +4,8 @@ from user_info import MY_EMAIL, PASSWORD_KEY, FIDE_ID, EMAIL_SERVER
 
 def send_email(email, tournament_name, rating):
     # SMTP Server and port no for email server
-    email_server= EMAIL_SERVER
-    email_port= 587
+    email_server = EMAIL_SERVER
+    email_port = 587
 
     # Starting connection
     my_server = smtplib.SMTP(email_server, email_port)
@@ -20,15 +20,15 @@ def send_email(email, tournament_name, rating):
 
     Nosūtu savu pieteikumu uz {tournament_name}:
 
-    Vārds: (vards)
-    Uzvārds: (uzvards)
+    Vārds: (vārds)
+    Uzvārds: (uzvārds)
     FIDE ID: {FIDE_ID}
     Reitings: {rating}
     Sporta klase/tituls: (sporta klase)
-    Pilsēta/klubs: (pilseta)
+    Pilsēta/klubs: (pilsēta)
 
     Ar cieņu
-    (vards uzvards)
+    (vārds uzvārds)
 
     Šī ziņa tika sagatavota un nosūtīta automātiski.
                 ''')
