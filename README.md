@@ -115,9 +115,9 @@ Mainīgais MY_EMAIL ir jānomaina uz attiecīgo e-pasta adresi no kā tiks sūt�
 
 Mainīgais PASSWORD_KEY ir jānomaina uz ģenerētu paroles atslēgu. [Šeit](https://help.inbox.lv/category/10200/question/10473) ir pieejama instrukcija kā to var izdarīt "inbox.lv" e-pasta adresei.
 
-Kad šis ir izdarīt ir nepieciešams atvērt **Send.py** failu un izmainīt sekojošas vērtības:
+Kad šis ir izdarīts ir nepieciešams atvērt **Send.py** failu un izmainīt sekojošas vērtības:
 
-Ja e-pasta adresi atšķiras ports no standarta vērtības (587), tad mainīgo email_port = 587 ir nepieciešams nomainīt uz attiecīgo vērtību.
+Ja e-pasta adresei atšķiras ports no standarta vērtības (587), tad mainīgo email_port = 587 ir nepieciešams nomainīt uz attiecīgo vērtību.
 
 Kā arī ir nepieciešams nomainīt ziņojuma tekstu msg.set_content, kur vajag izmainīt sekojošus tekstus, kas ir ievietoti iekavās:
 
