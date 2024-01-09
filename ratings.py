@@ -1,6 +1,4 @@
-import os
 import requests
-from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 from user_info import FIDE_ID
 
