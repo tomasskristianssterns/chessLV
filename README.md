@@ -25,44 +25,124 @@ Projekts satur 2 teksta failus (.txt) nepieciešamo Python bibliotēku instalē�
 
 ## Izmantotās Python bibliotēkas
 
-* from tkinter import *
-* from tkinter.ttk import *
-* import tksheet
-
-* PyPDF2 - 
-* openpyxl - load_workbook, Workbook -
-* fnmatch -
-* os -
-* shutil -
-* requests -
-* urllib.parse - urljoin -
-* bs4 - BeautifulSoup -
-* datetime - date, datetime -
-* smtplib - 
-* email.message - EmailMessage -
-
-* *Download, Read, Ratings, Send, user_info*, kas ir izveidotie Python faili un tiek importēti citos failos. 
+* **tkinter, tkinter.ttk** - izmantots, lai izveidotu interaktīvu interfeisu ar lietotāju;
+* **tksheet** - izmantots, lai UI varētu attēlot datus tabulas veidā, kur parāda turnīru parametrus;
+* **PyPDF2** - datu nolasīšanai no lejupielādētajiem PDF failiem;
+* **openpyxl** - (*load_workbook, Workbook*) - excel faila izveidošana un tā ielādēšana;
+* **fnmatch** - lejupielādēto PDF failu saskaitīšanai;
+* **os** - mapju izveidošana un iedarbībai ar operētājsistēmu;
+* **shutil** - mapes dzēšana kopā ar lejupielādētajiem PDF failiem;
+* **requests** - pieprasījumu veikšana uz norādīto mājaslapu;
+* **urllib.parse** - (*urljoin*) - PDF faila saglabāšanai no tīmekļa lejupielādēšanas;
+* **bs4** - (*BeautifulSoup*) - vienkāršota datu strukturizēšana, veicot tīmekļa skrāpēšanu;
+* **datetime** - (*date, datetime*) - pašreizējā datuma un laika saglabāšanai, izmantošana kā atskaites punkts;
+* **smtplib** - SMTP protokols e-pasta nosūtīšanai;
+* **email.message** - (*EmailMessage*) - e-pasta struktūras izveidošanai;
+* ***Download, Read, Ratings, Send, user_info***, kas ir izveidotie Python faili un tiek importēti citos failos. 
 
 ## Failu apraksti
+
+* **main.py** - interaktīvās sistēmas palaišanas fails
+* **Download.py** - visu pieejamo PDF failu lejupielādēšana līdz noteiktam datumam
+* **Read.py** - visu lejupielādēto PDF failu lasīšana, lai izgūtu e-pasta adreses un turnīra laika kontroles tipu
+* **Ratings.py** - visu 3 reitingu tipu iegūšana no tīmekļa
+* **Send.py** - e-pasta nosūtīšanas fails
+* **user_info_example.py** - **obligāti** norādāmo datu faila piemērs
+* **user_info.py** - **obligāti** norādāmo datu fails, ko lietotājs ģenerē
+* **update.txt** - pēdējā lejupielādēto PDF failu laiks
+* **requirements.txt** - nepieciešamo bibliotēku lejupielādes fails
+* **tournaments.xlsx** - lejupielādēto PDF failu strukturizācija, kas tiek ģenerēti programmas laikā
+* **final.xlsx** - lejupielādēto + nolasīto PDF failu strukturizācija, kas tiek ģenerēti programmas laikā
+* **README.md** - dokumentācijas fails
+* **.gitignore** - git ignorēšanas fails (saglabā norādītos failus tikai lokāli)
+* **regulations** - visu lejupielādēto PDF failu mape
+* **assets/images** - dokumentācijai nepieciešamās bildes
+
+> [!NOTE]
+> user_info.py, tournaments.xlsx, final.xlsx un visi faili "regulations" mapē tiek saglabāti tikai uz lokālā datora
 
 ## Uzstādīšanas instrukcija
 
 ### Izveidot lokālu projekta kopiju
+Lejupielādēt lokālu projekta kopiju, piemēram, izmantojot **git**:
 ```
-git clone 
+git clone https://github.com/tomasskristianssterns/chessLV.git
 ```
-
+Pēc tam lejupielādēt nepieciešamos python moduļus:
 ```
 pip install -r requirements.txt
 ```
 
-
 ### Pievienot nepieciešamās vērtības
-Izveidot jaunu user_info.py failu
+Izveidot jaunu ***user_info.py*** failu, kopējot parauga failu:
 
 ```
 cp user_info_example.py user_info.py
 ```
-Rediģēt 
+Rediģēt failā **user_info.py** sekojošas vērtības:
+
+* PATH = r"C:\\\Users\\\{path}\\\chessLV\\\regulations"
+
+PATH tiek nomainīts uz lokālā projekta ceļu, galā pievienojot "regulations", kur tiks saglabāti visi PDF nolikumi. To var uzzināt atverot python interaktīvo režīmu:
+
+```
+python
+```
+Un ievadot sekojošas komandas:
+```
+import os
+os.getcwd()
+exit()
+```
+
+Iegūto failu ceļu nokopē no saglabā mainīgajā PATH, sākumā saglabājot PATH = r"C:\\\..." un beigās saglabājot "..\\\regulations"
+
+* FIDE_ID = ""
+
+FIDE ID tiek nomainīts uz lietotāja FIDE ID vērtību. Ja lietotājam nav FIDE ID, to ir iespējams iegūt [šeit](https://forms.zohopublic.com/virtualoffice22358/form/63277290379193162845/formperma/pgRPQhvR2cQTqOyqYTQrK_soBIuSEYbhIz7bSIDNOD0). Piemēram, ja lietotājam ir izniegts FIDE ID ar vērtību 0123456789, tad viņš nomaina tā vērtību uz:
+
+```
+FIDE_ID = 0123456789
+```
+
+* MY_EMAIL = ""
+* PASSWORD_KEY = ""
+* EMAIL_SERVER = "mail.inbox.lv"
+
+Tālāk ir 3 mainīgie, kur jānorāda e-pasts, paroles atslēga un e-pasta serveris. Ja izmanto *"inbox.lv"*, lai nosūtītu e-pastu, tad EMAIL_SERVER vērtība **NAV** jāmaina. Taču izmantojot citu e-pastu nosūtīšanas aplikāciju ir jānorāda attiecīgais e-pasta serveris, piemēram, gmail.com serveris ir: EMAIL_SERVER = "smtp.gmail.com".
+
+Mainīgais MY_EMAIL ir jānomaina uz attiecīgo e-pasta adresi no kā tiks sūtīti pieteikumi šaha turnīram, piemēram, MY_EMAIL = "example@inbox.lv"
+
+Mainīgais PASSWORD_KEY ir jānomaina uz ģenerētu paroles atslēgu. [Šeit](https://help.inbox.lv/category/10200/question/10473) ir pieejama instrukcija kā to var izdarīt "inbox.lv" e-pasta adresei.
+
+Kad šis ir izdarīt ir nepieciešams atvērt **Send.py** failu un izmainīt sekojošas vērtības:
+
+Ja e-pasta adresi atšķiras ports no standarta vērtības (587), tad mainīgo email_port = 587 ir nepieciešams nomainīt uz attiecīgo vērtību.
+
+Kā arī ir nepieciešams nomainīt ziņojuma tekstu msg.set_content, kur vajag izmainīt sekojošus tekstus, kas ir ievietoti iekavās:
+
+* Vārds: (vārds)
+
+(vārds) uz lietotāja vārdu
+
+* Uzvārds: (uzvārds)
+
+(uzvārds) uz lietotāja uzvārdu
+
+* Sporta klase/tituls: (sporta klase)
+
+(sporta klase) uz sporta klasi vai titulu kas pieder lietotājam
+
+* Pilsēta/klubs: (pilsēta)
+
+(pilsēta) uz pilsētu vai klubu ko lietotājs pārstāv
+
+* (vārds uzvārds)
+
+(vārds uzvārds) uz lietotāja parakstu, kas ir lietotāja vārds un uzvārds 
+
+Kad visas šīs izmaiņas ir veiktas ir iespējams palaist programmu.
+
 ## Programmas lietošanas piemērs
 
+![ ](/assets/images/image1.png)
