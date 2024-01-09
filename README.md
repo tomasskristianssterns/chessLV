@@ -145,4 +145,72 @@ Kad visas šīs izmaiņas ir veiktas ir iespējams palaist programmu.
 
 ## Programmas lietošanas piemērs
 
-![ ](/assets/images/image1.png)
+Programmu palaiž startējot **main.py** failu. Ja programmu tiek palaista pirmo reizi, tad ir iespējams tikai lejupielādēt nolikumus.
+
+![ ](assets/images/image1.jpg)
+
+Veicot nolikumu lejupielādi, visas pogas kļūs neaktīvas un būs nepieciešams gaidīt kamēr lejupielādējas nolikumi.
+
+> [!NOTE]
+> Nolikumu lejupielāde aizņem ~2-3 minūtes.
+
+![ ](assets/images/image2.jpg)
+
+Lejupielādējot nolikumus ir iespēja aplūkot turnīrus vai pieteikties kādam noteiktam turnīram. Kā arī var redzēt pēdējo laiku, kad tika lejupielādēti nolikumi.
+
+![ ](assets/images/image3.jpg)
+
+Aplūkojot turnīrus var tabulas veidā redzēt pieejamos turnīrus, to norises datumu, e-pasts uz kuru jāpiesakās un turnīra tipu. Ja e-pasts un/vai turnīra tips ir "Unknown", tad nebija iespējams viennozīmīgi iegūt nepieciešamo informāciju.
+
+![ ](assets/images/image4.jpg)
+
+Izvēloties turnīru tiek parādīti visi iespējamie turnīri, kuriem var pieteikties. Ja netiek izvēlēts neviens turnīrs, nav iespējams turpināt.
+
+![ ](assets/images/image5.jpg)
+
+Izvēloties kādu turnīru ir iespējams turpināt pieteikšanos.
+
+![ ](assets/images/image6.jpg)
+
+Sekmīga turnīra datu nolasīšanas procesā, ir iespēja apstiprināt pieteikumu, ievadot teksta lodziņā e-pastu uz kuru jāsūta pieteikums. Šāda opcija eksistē, ja gadījumā tiek nolasīts nepareizais e-pasts. Ir iespējams to izmainīt.
+
+![ ](assets/images/image7.jpg)
+
+Teksta lauciņā ievadīt nepieciešamo informāciju un apstiprinot e-pastu varēs nosūtīt pieteikumu.
+
+![ ](assets/images/image8.jpg)
+
+Apstiprinot e-pastu ir iespējams nosūtīt e-pastu.
+
+> [!CAUTION]
+> Nosūtot e-pastu, to nevarēs apturēt un tiks nosūtīts ziņojums uz pēdējo apstiprināto e-pastu.
+
+![ ](assets/images/image9.jpg)
+
+Nosūtot ziņojumu, pieteikums ir nosūtīts un vairs nekādas funkcijas nav iespējams veikt.
+
+![ ](assets/images/image10.jpg)
+
+Taču var gadīties, ka izvēloties turnīru, kam piesakās, nevar e-pastu nosūtīt. Šajā gadījumā e-pasts un/vai turnīra tips ir "Unknown". Ja e-pasts ir vienāds ar šādu vērtību, tad nolikumā vai nu nav norādīts e-pasts (pieteikšanās ar kādu linku), vai pieteikuma e-pasts neatbilst standarta norādītajām vērtībām.
+Ja turnīra tips nav zināms, tad nolikums nav nepieciešamie atslēgas vārdi, lai viennozīmīgi noteiktu tā tipu. Šādos gadījumos ir ieteicams izlasīt nolikumu un pieteikties manuāli.
+
+![ ](assets/images/image11.jpg)
+
+## Automatizēšanas procesa automatizācija
+
+Var ievērot, ka programma tiek palaista no kādas izstrādātājvides, piemēram, VS Code. Lai katru reizi nevērtu vaļā attiecīgo izstrādātājvidi, lai palaistu programmu, ir iespējams izveidot Windows pakešfailu (angļu - *Batch file*) ar paplašinājumu ".bat", kas automātiski, palaidīs programmu.
+
+```
+@echo off
+
+cd "C:\Users\<path to chessLV>\chessLV"
+
+start main.py
+
+Exit
+```
+
+Otrajā rindā ir nepieciešams nomainīt uz ceļu, kur atrodas lokālā projekta kopija. Failu var saglabāt uz sākuma ekrāna, tādā gadījumā programmu var palaist ar 1 klikšķi.
+
+> [!NOTE]
+> Tieši šāds pakešfaila kods ir uz Windows. Līdzīgu kodus var izveidot arī uz citām operētājsistēmām.
